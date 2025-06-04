@@ -2,7 +2,7 @@
 
 Welcome to my GitHub profile. You can connect with me professionally on LinkedIn:
 
-👉 [https://www.linkedin.com/in/ian-stocking](https://www.linkedin.com/in/ian-stocking)
+ [https://www.linkedin.com/in/ian-stocking](https://www.linkedin.com/in/ian-stocking)
 
 <!--
 **Ianstocking/ianstocking** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
