@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ian Stocking</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #111;
+      color: white;
+      overflow: hidden;
+    }
+
+    h1 {
+      margin-top: 80px;
+      font-size: 2.5rem;
+    }
+
+    p a {
+      color: #1e90ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    p a:hover {
+      text-decoration: underline;
+    }
+
+    .blob {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 300px;
+      height: 300px;
+      background: linear-gradient(135deg, #00f2ff, #ff3cac);
+      border-radius: 50%;
+      filter: blur(80px);
+      transform: translate(-50%, -50%);
+      animation: float 6s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+      }
+      50% {
+        transform: translate(-48%, -52%) scale(1.1);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="blob"></div>
+
+  <h1>Ian Stocking</h1>
+  <p>Welcome to my GitHub profile.</p>
+  <p>👉 <a href="https://www.linkedin.com/in/ian-stocking" target="_blank">Connect with me on LinkedIn</a></p>
+
+</body>
+</html>
