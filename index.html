@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ian Stocking – GitHub Page</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #5c94fc;
+      font-family: sans-serif;
+      color: white;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    .header {
+      padding: 40px 20px 20px;
+      font-size: 1.5rem;
+      z-index: 10;
+      position: relative;
+    }
+
+    a {
+      color: #ffeb3b;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .scene {
+      position: relative;
+      width: 100vw;
+      height: 300px;
+      overflow: hidden;
+    }
+
+    .ground {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 80px;
+      background: #57a038;
+    }
+
+    .mario {
+      position: absolute;
+      bottom: 80px;
+      width: 48px;
+      height: 48px;
+      background: url('https://www.mariowiki.com/images/2/28/MK8_Mario_Artwork.png') no-repeat center;
+      background-size: cover;
+      animation: moveMario 5s linear infinite;
+    }
+
+    @keyframes moveMario {
+      0% { left: -60px; }
+      100% { left: 100vw; }
+    }
+
+    .clouds {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 300%;
+      height: 150px;
+      background: url('https://i.imgur.com/OJbbwpE.png') repeat-x;
+      background-size: contain;
+      animation: moveClouds 60s linear infinite;
+    }
+
+    @keyframes moveClouds {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>Ian Stocking</h1>
+    <p>Welcome to my GitHub profile.</p>
+    <p>👉 <a href="https://www.linkedin.com/in/ian-stocking" target="_blank">Connect with me on LinkedIn</a></p>
+  </div>
+
+  <div class="scene">
+    <div class="clouds"></div>
+    <div class="mario"></div>
+    <div class="ground"></div>
+  </div>
+
+</body>
+</html>
