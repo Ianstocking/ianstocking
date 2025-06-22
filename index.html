@@ -1,65 +1,137 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ian Stocking</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background-color: #111;
-      color: white;
-      overflow: hidden;
-    }
-
-    h1 {
-      margin-top: 80px;
-      font-size: 2.5rem;
-    }
-
-    p a {
-      color: #1e90ff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    p a:hover {
-      text-decoration: underline;
-    }
-
-    .blob {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 300px;
-      height: 300px;
-      background: linear-gradient(135deg, #00f2ff, #ff3cac);
-      border-radius: 50%;
-      filter: blur(80px);
-      transform: translate(-50%, -50%);
-      animation: float 6s ease-in-out infinite;
-      z-index: -1;
-    }
-
-    @keyframes float {
-      0%, 100% {
-        transform: translate(-50%, -50%) scale(1);
-      }
-      50% {
-        transform: translate(-48%, -52%) scale(1.1);
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ian Stocking - Personal Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-gradient-to-br from-gray-100 to-blue-100 dark:from-gray-900 dark:to-blue-900 font-sans transition-colors duration-300">
+    <nav class="bg-white bg-opacity-20 dark:bg-gray-800 dark:bg-opacity-20 backdrop-filter backdrop-blur-lg text-gray-800 dark:text-white p-4 sticky top-0 shadow-lg z-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <ul class="flex space-x-6">
+                <li><a href="#home" onclick="showSection('home')" class="hover:text-blue-600 dark:hover:text-blue-400 transition duration-200 font-medium">Home</a></li>
+                <li><a href="#about" onclick="showSection('about')" class="hover:text-blue-600 dark:hover:text-blue-400 transition duration-200 font-medium">About</a></li>
+                <li><a href="#experience" onclick="showSection('experience')" class="hover:text-blue-600 dark:hover:text-blue-400 transition duration-200 font-medium">Experience</a></li>
+                <li><a href="#projects" onclick="showSection('projects')" class="hover:text-blue-600 dark:hover:text-blue-400 transition duration-200 font-medium">Projects</a></li>
+                <li><a href="#computer-skills" onclick="showSection('computer-skills')" class="hover:text-blue-600 dark:hover:text-blue-400 transition duration-200 font-medium">Computer Skills</a></li>
+                <li><a href="#community-service" onclick="showSection('community-service')" class="hover:text-blue-600 dark:hover:text-blue-400 transition duration-200 font-medium">Community Service</a></li>
+                <li><a href="#contact" onclick="showSection('contact')" class="hover:text-blue-600 dark:hover:text-blue-400 transition duration-200 font-medium">Contact</a></li>
+            </ul>
+            <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-200">
+                <span class="sun">☀️</span>
+                <span class="moon hidden">🌙</span>
+            </button>
+        </div>
+    </nav>
+    <div class="container mx-auto p-6 max-w-3xl">
+        <div id="home" class="section bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 active transform transition duration-300 hover:scale-105">
+            <h1 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">Welcome to My Portfolio</h1>
+            <p class="text-gray-600 dark:text-gray-300">Hi, I'm Ian Stocking, a Public Administration student at George Mason University passionate about effective governance and community leadership. Explore my experience, skills, and community service!</p>
+        </div>
+        <div id="about" class="section bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 transform transition duration-300 hover:scale-105">
+            <h1 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">About Me</h1>
+            <p class="text-gray-600 dark:text-gray-300">I'm a student at George Mason University's Schar School of Policy and Government, pursuing a Bachelor of Science in Public Administration with a Concentration in Administration and Management. I hold associate degrees in Political Science and Science from Northern Virginia Community College. Based in Fairfax, VA, I'm dedicated to advancing public policy through efficient management and data-driven solutions. I interned with Senator Mark Warner’s office in 2025, conducting research on public administration challenges. Connect with me on <a href="https://linkedin.com/in/ian-stocking" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">LinkedIn</a> to learn more!</p>
+        </div>
+        <div id="experience" class="section bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 transform transition duration-300 hover:scale-105">
+            <h1 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">Experience</h1>
+            <div class="mb-6">
+                <h2 class="text-2xl font-semibold text-gray-700 dark:text-gray-200 mb-2">Intern, United States Senate (Senator Mark R. Warner), Vienna, VA</h2>
+                <p class="text-gray-500 dark:text-gray-400 italic">January 2025 - April 2025</p>
+                <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300">
+                    <li>Assisted in drafting event briefs for the Senator, summarizing key policy points, attendee backgrounds, and strategic messaging for public appearances.</li>
+                    <li>Conducted legislative research and drafted memos on policy issues.</li>
+                    <li>Assisted in constituent services, responding to inquiries via phone, email, and mail, ensuring clear and professional communication.</li>
+                    <li>Provided administrative support, including data entry, scheduling, and office organization, to maintain efficient daily operations.</li>
+                </ul>
+            </div>
+            <div class="mb-6">
+                <h2 class="text-2xl font-semibold text-gray-700 dark:text-gray-200 mb-2">Client Advisor, Panerai, McLean, VA</h2>
+                <p class="text-gray-500 dark:text-gray-400 italic">November 2023 - August 2024</p>
+                <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300">
+                    <li>Engaged with high-profile and high-net-worth individuals, ensuring exceptional service and cultivating trusted relationships in high-stakes environments.</li>
+                    <li>Delivered personalized client experiences by leveraging strong communication skills, active listening, and cultural awareness to meet individual needs.</li>
+                    <li>Surpassed sales goals by generating over $300,000 in revenue through consultative selling and tailored recommendations.</li>
+                    <li>Collaborated with a diverse team to ensure cohesive operations and exemplary client service.</li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="text-2xl font-semibold text-gray-700 dark:text-gray-200 mb-2">Educator, Lululemon Athletica, McLean, VA</h2>
+                <p class="text-gray-500 dark:text-gray-400 italic">December 2022 - November 2023</p>
+                <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300">
+                    <li>Engaged with guests to provide tailored experiences, prioritizing time management and communication.</li>
+                    <li>Leveraged technical product knowledge to articulate value, translating complex information effectively.</li>
+                    <li>Partnered with teammates to enhance the guest experience through collaboration and adaptability.</li>
+                </ul>
+            </div>
+        </div>
+        <div id="projects" class="section bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 transform transition duration-300 hover:scale-105">
+            <h1 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">Projects</h1>
+            <p class="text-gray-600 dark:text-gray-300">We are working on this.</p>
+        </div>
+        <div id="computer-skills" class="section bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 transform transition duration-300 hover:scale-105">
+            <h1 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">Computer Skills</h1>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">As a Public Administration student, I leverage a range of technical tools to support data analysis, research, and efficient workflow management, enhancing my ability to address complex policy and administrative challenges.</p>
+            <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300">
+                <li><strong>R</strong>: Proficient in using R for statistical analysis and data visualization, enabling efficient processing and interpretation of datasets for public policy research.</li>
+                <li><strong>Python</strong>: Skilled in Python for data manipulation and analysis, utilizing libraries like pandas and numpy to support data-driven decision-making in administrative contexts.</li>
+                <li><strong>SAS</strong>: Experienced with SAS for advanced statistical modeling, facilitating rigorous analysis of public administration datasets.</li>
+                <li><strong>Minitab</strong>: Competent in Minitab for statistical process control and quality analysis, applicable to evaluating and improving administrative efficiency.</li>
+                <li><strong>Stata</strong>: Proficient in Stata for econometric analysis, aiding in the study of policy impacts and administrative trends.</li>
+                <li><strong>Microsoft Office/365</strong>: Expert in Word, Excel, PowerPoint, and Outlook for creating professional reports, managing data, and streamlining communication in administrative settings.</li>
+                <li><strong>Apple Software</strong>: Adept with macOS and tools like Pages, Numbers, and Keynote, ensuring seamless workflow for presentations and documentation across platforms.</li>
+            </ul>
+        </div>
+        <div id="community-service" class="section bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 transform transition duration-300 hover:scale-105">
+            <h1 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">Community Service</h1>
+            <h2 class="text-2xl font-semibold text-gray-700 dark:text-gray-200 mb-2">Eagle Scout Service Project</h2>
+            <p class="text-gray-600 dark:text-gray-300">For my Eagle Scout project, I led a community service initiative focused on restoring severe erosion at Villa Lee Park in Fairfax, VA. This involved:</p>
+            <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300">
+                <li>Extensive planning and meetings with local community organizations.</li>
+                <li>Coordinating fundraising efforts to secure necessary resources.</li>
+                <li>Leading numerous volunteers in collaboration with the Fairfax County Park Authority.</li>
+                <li>Successfully restoring eroded areas near bridge abutments, making the park path accessible again.</li>
+            </ul>
+            <p class="text-gray-600 dark:text-gray-300">This experience deepened my commitment to service and enhanced my leadership skills, aligning with my public administration goals.</p>
+        </div>
+        <div id="contact" class="section bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 transform transition duration-300 hover:scale-105">
+            <h1 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">Contact</h1>
+            <p class="text-gray-600 dark:text-gray-300">Reach me at <a href="mailto:istockin@GMU.edu" class="text-blue-600 dark:text-blue-400 hover:underline">istockin@GMU.edu</a> or connect on <a href="https://linkedin.com/in/ian-stocking" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">LinkedIn</a> to discuss opportunities in public administration or community initiatives.</p>
+        </div>
+    </div>
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
 
-  <div class="blob"></div>
+        const html = document.getElementById('html');
+        const themeToggle = document.getElementById('theme-toggle');
+        const sun = themeToggle.querySelector('.sun');
+        const moon = themeToggle.querySelector('.moon');
 
-  <h1>Ian Stocking</h1>
-  <p>Welcome to my GitHub profile.</p>
-  <p>👉 <a href="https://www.linkedin.com/in/ian-stocking" target="_blank">Connect with me on LinkedIn</a></p>
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            sun.classList.toggle('hidden');
+            moon.classList.toggle('hidden');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
 
+        if (localStorage.getItem('theme') === 'dark') {
+            html.classList.add('dark');
+            sun.classList.add('hidden');
+            moon.classList.remove('hidden');
+        }
+    </script>
+    <style>
+        .section {
+            display: none;
+        }
+        .section.active {
+            display: block;
+        }
+    </style>
 </body>
 </html>
