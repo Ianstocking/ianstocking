@@ -6,32 +6,58 @@
     <title>Ian Stocking - Personal Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --background-start: #e6f0fa;
+            --background-end: #ffffff;
+            --nav-background: rgba(255, 255, 255, 0.9);
+            --text-color: #333;
+            --link-color: #1e90ff;
+            --link-hover: #104e8b;
+            --card-background: #fff;
+            --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --heading-color: #1e90ff;
+            --subheading-color: #104e8b;
+            --button-bg: #1e90ff;
+            --button-hover: #104e8b;
+            --transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] {
+            --background-start: #1a2a44;
+            --background-end: #0d1b2a;
+            --nav-background: rgba(10, 20, 30, 0.9);
+            --text-color: #e0e0e0;
+            --link-color: #87cefa;
+            --link-hover: #4682b4;
+            --card-background: #2a3d5a;
+            --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            --heading-color: #87cefa;
+            --subheading-color: #4682b4;
+            --button-bg: #87cefa;
+            --button-hover: #4682b4;
+        }
+
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #e6f0fa, #ffffff);
-            color: #333;
-            transition: all 0.3s ease;
+            background: linear-gradient(135deg, var(--background-start), var(--background-end));
+            color: var(--text-color);
+            transition: var(--transition);
             overflow-x: hidden;
         }
-        body.dark {
-            background: linear-gradient(135deg, #1a2a44, #0d1b2a);
-            color: #e0e0e0;
-        }
+
         nav {
             position: sticky;
             top: 0;
-            background: rgba(255, 255, 255, 0.9);
+            background: var(--nav-background);
             backdrop-filter: blur(10px);
             padding: 1rem;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
         }
-        nav.dark {
-            background: rgba(10, 20, 30, 0.9);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
+
         nav ul {
             list-style: none;
             display: flex;
@@ -39,25 +65,23 @@
             margin: 0;
             padding: 0;
         }
+
         nav ul li {
             margin: 0 1.5rem;
         }
+
         nav ul li a {
-            color: #1e90ff;
+            color: var(--link-color);
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
+
         nav ul li a:hover {
-            color: #104e8b;
+            color: var(--link-hover);
             font-weight: 700;
         }
-        nav.dark ul li a {
-            color: #87cefa;
-        }
-        nav.dark ul li a:hover {
-            color: #4682b4;
-        }
+
         #theme-toggle {
             position: absolute;
             right: 1rem;
@@ -67,120 +91,115 @@
             border: none;
             font-size: 1.5rem;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
+
         #theme-toggle:hover {
             transform: translateY(-50%) scale(1.1);
         }
+
         .container {
             max-width: 900px;
             margin: 2rem auto;
             padding: 0 1rem;
         }
+
         .section {
-            background: #fff;
+            background: var(--card-background);
             padding: 2rem;
             margin-bottom: 2rem;
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--card-shadow);
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.5s forwards;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
-        .section.dark {
-            background: #2a3d5a;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
+
         @keyframes fadeInUp {
             to { opacity: 1; transform: translateY(0); }
         }
+
         .section h1 {
-            color: #1e90ff;
+            color: var(--heading-color);
             margin-bottom: 1.5rem;
         }
-        .section.dark h1 {
-            color: #87cefa;
-        }
+
         .section h2 {
-            color: #104e8b;
+            color: var(--subheading-color);
             margin-bottom: 1rem;
         }
-        .section.dark h2 {
-            color: #4682b4;
-        }
+
         .section p {
             line-height: 1.6;
             margin-bottom: 1rem;
         }
+
         .section ul {
             list-style-type: disc;
             padding-left: 2rem;
             margin-bottom: 1rem;
         }
+
         .section ul li {
             margin-bottom: 0.5rem;
         }
+
         .section ul li strong {
-            color: #1e90ff;
+            color: var(--heading-color);
         }
-        .section.dark ul li strong {
-            color: #87cefa;
-        }
+
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1rem;
             margin-top: 1rem;
         }
+
         .gallery img {
             width: 100%;
             height: auto;
             border-radius: 8px;
             transition: transform 0.3s ease;
         }
+
         .gallery img:hover {
             transform: scale(1.05);
         }
+
         .gallery p {
             text-align: center;
             margin: 0.5rem 0;
         }
+
         #gallery {
             display: none;
         }
+
         button {
-            background: #1e90ff;
+            background: var(--button-bg);
             color: #fff;
             padding: 0.5rem 1rem;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
+
         button:hover {
-            background: #104e8b;
+            background: var(--button-hover);
         }
-        button.dark {
-            background: #87cefa;
-        }
-        button.dark:hover {
-            background: #4682b4;
-        }
+
         a {
-            color: #1e90ff;
+            color: var(--link-color);
             text-decoration: underline;
-            transition: color 0.3s ease;
+            transition: var(--transition);
         }
+
         a:hover {
-            color: #104e8b;
+            color: var(--link-hover);
         }
-        a.dark {
-            color: #87cefa;
-        }
-        a.dark:hover {
-            color: #4682b4;
-        }
+
         @media (max-width: 768px) {
             nav ul {
                 flex-direction: column;
@@ -191,6 +210,12 @@
             }
             .section {
                 padding: 1rem;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                data-theme: dark;
             }
         }
     </style>
@@ -314,20 +339,33 @@
         const sun = themeToggle.querySelector('.sun');
         const moon = themeToggle.querySelector('.moon');
 
+        // Apply theme based on localStorage or prefers-color-scheme
+        function applyTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                html.setAttribute('data-theme', savedTheme);
+                if (savedTheme === 'dark') {
+                    sun.classList.add('hidden');
+                    moon.classList.remove('hidden');
+                } else {
+                    sun.classList.remove('hidden');
+                    moon.classList.add('hidden');
+                }
+            } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                html.setAttribute('data-theme', 'dark');
+                sun.classList.add('hidden');
+                moon.classList.remove('hidden');
+            }
+        }
+
         themeToggle.addEventListener('click', () => {
-            html.classList.toggle('dark');
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? '' : 'dark';
+            html.setAttribute('data-theme', newTheme);
             sun.classList.toggle('hidden');
             moon.classList.toggle('hidden');
-            document.querySelectorAll('.section, nav, button, a').forEach(el => el.classList.toggle('dark'));
-            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+            localStorage.setItem('theme', newTheme);
         });
-
-        if (localStorage.getItem('theme') === 'dark') {
-            html.classList.add('dark');
-            sun.classList.add('hidden');
-            moon.classList.remove('hidden');
-            document.querySelectorAll('.section, nav, button, a').forEach(el => el.classList.add('dark'));
-        }
 
         const galleryToggle = document.getElementById('gallery-toggle');
         const gallery = document.getElementById('gallery');
@@ -340,6 +378,7 @@
         });
 
         // Initial load
+        applyTheme();
         showSection('home');
     </script>
 </body>
