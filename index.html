@@ -149,21 +149,10 @@
             color: var(--heading-color);
         }
 
-        .greeting-container {
+        .greeting {
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
-
-        .greeting-time {
-            font-size: 1.5em;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .greeting-welcome {
-            font-size: 1.2em;
-            font-weight: 400;
         }
 
         .gallery {
@@ -254,10 +243,7 @@
     </nav>
     <div class="container">
         <div id="home" class="section active">
-            <div class="greeting-container">
-                <h1 id="greeting-time" class="greeting-time"></h1>
-                <h2 id="greeting-welcome" class="greeting-welcome">Welcome to My Portfolio</h2>
-            </div>
+            <h1 id="greeting" class="greeting"></h1>
             <p>Hi, I'm Ian Stocking, a Public Administration student at George Mason University passionate about effective governance and community leadership. Explore my experience, skills, and community service!</p>
         </div>
         <div id="about" class="section">
@@ -399,7 +385,7 @@
 
         // Function to set greeting based on time
         function setGreeting() {
-            const greetingTime = document.getElementById('greeting-time');
+            const greetingElement = document.getElementById('greeting');
             const now = new Date();
             const hour = now.getHours();
             let timeGreeting;
@@ -412,7 +398,7 @@
                 timeGreeting = 'Good Evening';
             }
 
-            greetingTime.textContent = timeGreeting;
+            greetingElement.textContent = `${timeGreeting}, Welcome to My Portfolio`;
         }
 
         // Initial load
