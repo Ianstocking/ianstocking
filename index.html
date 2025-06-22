@@ -89,7 +89,19 @@
             </ul>
             <p class="text-gray-600 dark:text-gray-300 mb-4">This experience deepened my commitment to service and enhanced my leadership skills, aligning with my public administration goals.</p>
             <h2 class="text-2xl font-semibold text-gray-700 dark:text-gray-200 mb-2">News Article</h2>
-            <p class="text-gray-600 dark:text-gray-300">My Eagle Scout project was featured in a 2015 article by Annandale Today, recognizing my achievement as one of three Falls Church High School students who earned the Eagle Scout rank. The article highlights my leadership in restoring erosion at Villa Lee Park, improving park accessibility and community safety. Read the full article here: <a href="https://annandaletoday.com/falls-church-hs-students-achieve-eagle/" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Annandale Today - Falls Church HS Students Achieve Eagle</a>.</p>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">My Eagle Scout project was featured in a 2015 article by Annandale Today, recognizing my achievement as one of three Falls Church High School students who earned the Eagle Scout rank. The article highlights my leadership in restoring erosion at Villa Lee Park, improving park accessibility and community safety. Read the full article here: <a href="https://annandaletoday.com/falls-church-hs-students-achieve-eagle/" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Annandale Today - Falls Church HS Students Achieve Eagle</a>.</p>
+            <h2 class="text-2xl font-semibold text-gray-700 dark:text-gray-200 mb-2">Photo Gallery</h2>
+            <button id="gallery-toggle" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition duration-200 mb-4">Show/Hide Photos</button>
+            <div id="gallery" class="hidden grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <img src="https://via.placeholder.com/300x200?text=Eagle+Scout+Project+Photo+1" alt="Eagle Scout Project Photo 1" class="w-full h-auto rounded-lg shadow-md">
+                    <p class="text-gray-600 dark:text-gray-300 text-sm mt-2">Placeholder: Volunteers working on erosion restoration at Villa Lee Park.</p>
+                </div>
+                <div>
+                    <img src="https://via.placeholder.com/300x200?text=Eagle+Scout+Project+Photo+2" alt="Eagle Scout Project Photo 2" class="w-full h-auto rounded-lg shadow-md">
+                    <p class="text-gray-600 dark:text-gray-300 text-sm mt-2">Placeholder: Restored path near bridge abutments at Villa Lee Park.</p>
+                </div>
+            </div>
         </div>
         <div id="contact" class="section bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 transform transition duration-300 hover:scale-105">
             <h1 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">Contact</h1>
@@ -121,6 +133,14 @@
             sun.classList.add('hidden');
             moon.classList.remove('hidden');
         }
+
+        const galleryToggle = document.getElementById('gallery-toggle');
+        const gallery = document.getElementById('gallery');
+
+        galleryToggle.addEventListener('click', () => {
+            gallery.classList.toggle('hidden');
+            galleryToggle.textContent = gallery.classList.contains('hidden') ? 'Show Photos' : 'Hide Photos';
+        });
     </script>
     <style>
         .section {
