@@ -4,54 +4,241 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ian Stocking - Personal Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #e6f0fa, #ffffff);
+            color: #333;
+            transition: all 0.3s ease;
+            overflow-x: hidden;
+        }
+        body.dark {
+            background: linear-gradient(135deg, #1a2a44, #0d1b2a);
+            color: #e0e0e0;
+        }
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        nav.dark {
+            background: rgba(10, 20, 30, 0.9);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 0 1.5rem;
+        }
+        nav ul li a {
+            color: #1e90ff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #104e8b;
+            font-weight: 700;
+        }
+        nav.dark ul li a {
+            color: #87cefa;
+        }
+        nav.dark ul li a:hover {
+            color: #4682b4;
+        }
+        #theme-toggle {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        #theme-toggle:hover {
+            transform: translateY(-50%) scale(1.1);
+        }
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .section {
+            background: #fff;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s forwards;
+            transition: all 0.3s ease;
+        }
+        .section.dark {
+            background: #2a3d5a;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .section h1 {
+            color: #1e90ff;
+            margin-bottom: 1.5rem;
+        }
+        .section.dark h1 {
+            color: #87cefa;
+        }
+        .section h2 {
+            color: #104e8b;
+            margin-bottom: 1rem;
+        }
+        .section.dark h2 {
+            color: #4682b4;
+        }
+        .section p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .section ul {
+            list-style-type: disc;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        .section ul li {
+            margin-bottom: 0.5rem;
+        }
+        .section ul li strong {
+            color: #1e90ff;
+        }
+        .section.dark ul li strong {
+            color: #87cefa;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        .gallery p {
+            text-align: center;
+            margin: 0.5rem 0;
+        }
+        #gallery {
+            display: none;
+        }
+        button {
+            background: #1e90ff;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background: #104e8b;
+        }
+        button.dark {
+            background: #87cefa;
+        }
+        button.dark:hover {
+            background: #4682b4;
+        }
+        a {
+            color: #1e90ff;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #104e8b;
+        }
+        a.dark {
+            color: #87cefa;
+        }
+        a.dark:hover {
+            color: #4682b4;
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            .section {
+                padding: 1rem;
+            }
+        }
+    </style>
 </head>
-<body class="bg-gradient-to-br from-gray-100 to-blue-100 dark:from-gray-900 dark:to-blue-900 font-sans transition-colors duration-300">
-    <nav class="bg-white bg-opacity-20 dark:bg-gray-800 dark:bg-opacity-20 backdrop-filter backdrop-blur-lg text-gray-800 dark:text-white p-4 sticky top-0 shadow-lg z-10">
-        <div class="container mx-auto flex justify-between items-center">
-            <ul class="flex space-x-6">
-                <li><a href="#home" onclick="showSection('home')" class="hover:text-blue-600 dark:hover:text-blue-400 transition duration-200 font-medium">Home</a></li>
-                <li><a href="#about" onclick="showSection('about')" class="hover:text-blue-600 dark:hover:text-blue-400 transition duration-200 font-medium">About</a></li>
-                <li><a href="#experience" onclick="showSection('experience')" class="hover:text-blue-600 dark:hover:text-blue-400 transition duration-200 font-medium">Experience</a></li>
-                <li><a href="#computer-skills" onclick="showSection('computer-skills')" class="hover:text-blue-600 dark:hover:text-blue-400 transition duration-200 font-medium">Computer Skills</a></li>
-                <li><a href="#community-service" onclick="showSection('community-service')" class="hover:text-blue-600 dark:hover:text-blue-400 transition duration-200 font-medium">Community Service</a></li>
-                <li><a href="#contact" onclick="showSection('contact')" class="hover:text-blue-600 dark:hover:text-blue-400 transition duration-200 font-medium">Contact</a></li>
-            </ul>
-            <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-200">
-                <span class="sun">☀️</span>
-                <span class="moon hidden">🌙</span>
-            </button>
-        </div>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home" onclick="showSection('home')">Home</a></li>
+            <li><a href="#about" onclick="showSection('about')">About</a></li>
+            <li><a href="#experience" onclick="showSection('experience')">Experience</a></li>
+            <li><a href="#computer-skills" onclick="showSection('computer-skills')">Computer Skills</a></li>
+            <li><a href="#community-service" onclick="showSection('community-service')">Community Service</a></li>
+            <li><a href="#contact" onclick="showSection('contact')">Contact</a></li>
+        </ul>
+        <button id="theme-toggle">
+            <span class="sun">☀️</span>
+            <span class="moon hidden">🌙</span>
+        </button>
     </nav>
-    <div class="container mx-auto p-6 max-w-3xl">
-        <div id="home" class="section bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 active transform transition duration-300 hover:scale-105">
-            <h1 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">Welcome to My Portfolio</h1>
-            <p class="text-gray-600 dark:text-gray-300">Hi, I'm Ian Stocking, a Public Administration student at George Mason University passionate about effective governance and community leadership. Explore my experience, skills, and community service!</p>
+    <div class="container">
+        <div id="home" class="section active">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Hi, I'm Ian Stocking, a Public Administration student at George Mason University passionate about effective governance and community leadership. Explore my experience, skills, and community service!</p>
         </div>
-        <div id="about" class="section bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 transform transition duration-300 hover:scale-105">
-            <h1 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">About Me</h1>
-            <p class="text-gray-600 dark:text-gray-300">As a current senior at George Mason University’s Schar School of Policy and Government, I am pursuing a Bachelor of Science in Public Administration with a Concentration in Administration and Management. I hold Dual Associate degrees in Political Science and Science from Northern Virginia Community College. Based in Fairfax, VA, I am driven to enhance public policy through efficient management and data-driven solutions. Recently I finished an internship with Senator Mark Warner’s office in 2025, where I conducted research on public administration challenges. Known for my outgoing nature, dedication, and goal-oriented mindset, I thrive in collaborative settings and am committed to creating a lasting impact in my community and beyond.</p>
-            <div class="mt-4">
-                <img src="IMG_3948.JPG" alt="Yukon Route Alaska" class="w-full h-auto rounded-lg shadow-md">
-                <p class="text-gray-600 dark:text-gray-300 text-sm mt-2 text-center">Yukon Route Alaska</p>
+        <div id="about" class="section">
+            <h1>About Me</h1>
+            <p>As a current senior at George Mason University’s Schar School of Policy and Government, I am pursuing a Bachelor of Science in Public Administration with a Concentration in Administration and Management. I hold associate degrees in Political Science and Science from Northern Virginia Community College. Based in Fairfax, VA, I am driven to enhance public policy through efficient management and data-driven solutions. I just finished an internship with Senator Mark Warner’s office in 2025, where I conducted research on public administration challenges. Known for my outgoing nature, dedication, and goal-oriented mindset, I thrive in collaborative settings and am committed to creating a lasting impact in my community and beyond.</p>
+            <div class="gallery">
+                <img src="IMG_3948.JPG" alt="Yukon Route Alaska">
+                <p>Yukon Route Alaska</p>
             </div>
         </div>
-        <div id="experience" class="section bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 transform transition duration-300 hover:scale-105">
-            <h1 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">Experience</h1>
-            <div class="mb-6">
-                <h2 class="text-2xl font-semibold text-gray-700 dark:text-gray-200 mb-2">Intern, United States Senate (Senator Mark R. Warner), Vienna, VA</h2>
-                <p class="text-gray-500 dark:text-gray-400 italic">January 2025 - April 2025</p>
-                <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300">
+        <div id="experience" class="section">
+            <h1>Experience</h1>
+            <div>
+                <h2>Intern, United States Senate (Senator Mark R. Warner), Vienna, VA</h2>
+                <p class="italic">January 2025 - April 2025</p>
+                <ul>
                     <li>Assisted in drafting event briefs for the Senator, summarizing key policy points, attendee backgrounds, and strategic messaging for public appearances.</li>
                     <li>Conducted legislative research and drafted memos on policy issues.</li>
                     <li>Assisted in constituent services, responding to inquiries via phone, email, and mail, ensuring clear and professional communication.</li>
                     <li>Provided administrative support, including data entry, scheduling, and office organization, to maintain efficient daily operations.</li>
                 </ul>
             </div>
-            <div class="mb-6">
-                <h2 class="text-2xl font-semibold text-gray-700 dark:text-gray-200 mb-2">Client Advisor, Panerai, McLean, VA</h2>
-                <p class="text-gray-500 dark:text-gray-400 italic">November 2023 - August 2024</p>
-                <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300">
+            <div>
+                <h2>Client Advisor, Panerai, McLean, VA</h2>
+                <p class="italic">November 2023 - August 2024</p>
+                <ul>
                     <li>Engaged with high-profile and high-net-worth individuals, ensuring exceptional service and cultivating trusted relationships in high-stakes environments.</li>
                     <li>Delivered personalized client experiences by leveraging strong communication skills, active listening, and cultural awareness to meet individual needs.</li>
                     <li>Surpassed sales goals by generating over $300,000 in revenue through consultative selling and tailored recommendations.</li>
@@ -59,19 +246,19 @@
                 </ul>
             </div>
             <div>
-                <h2 class="text-2xl font-semibold text-gray-700 dark:text-gray-200 mb-2">Educator, Lululemon Athletica, McLean, VA</h2>
-                <p class="text-gray-500 dark:text-gray-400 italic">December 2022 - November 2023</p>
-                <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300">
+                <h2>Educator, Lululemon Athletica, McLean, VA</h2>
+                <p class="italic">December 2022 - November 2023</p>
+                <ul>
                     <li>Engaged with guests to provide tailored experiences, prioritizing time management and communication.</li>
                     <li>Leveraged technical product knowledge to articulate value, translating complex information effectively.</li>
                     <li>Partnered with teammates to enhance the guest experience through collaboration and adaptability.</li>
                 </ul>
             </div>
         </div>
-        <div id="computer-skills" class="section bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 transform transition duration-300 hover:scale-105">
-            <h1 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">Computer Skills</h1>
-            <p class="text-gray-600 dark:text-gray-300 mb-4">As a Public Administration student, I leverage a range of technical tools to support data analysis, research, and efficient workflow management, enhancing my ability to address complex policy and administrative challenges.</p>
-            <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300">
+        <div id="computer-skills" class="section">
+            <h1>Computer Skills</h1>
+            <p>As a Public Administration student, I leverage a range of technical tools to support data analysis, research, and efficient workflow management, enhancing my ability to address complex policy and administrative challenges.</p>
+            <ul>
                 <li><strong>R</strong>: Proficient in using R for statistical analysis and data visualization, enabling efficient processing and interpretation of datasets for public policy research.</li>
                 <li><strong>Python</strong>: Skilled in Python for data manipulation and analysis, utilizing libraries like pandas and numpy to support data-driven decision-making in administrative contexts.</li>
                 <li><strong>SAS</strong>: Experienced with SAS for advanced statistical modeling, facilitating rigorous analysis of public administration datasets.</li>
@@ -81,41 +268,43 @@
                 <li><strong>Apple Software</strong>: Adept with macOS and tools like Pages, Numbers, and Keynote, ensuring seamless workflow for presentations and documentation across platforms.</li>
             </ul>
         </div>
-        <div id="community-service" class="section bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 transform transition duration-300 hover:scale-105">
-            <h1 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">Community Service</h1>
-            <h2 class="text-2xl font-semibold text-gray-700 dark:text-gray-200 mb-2">Eagle Scout Service Project</h2>
-            <p class="text-gray-600 dark:text-gray-300">For my Eagle Scout project, I led a community service initiative focused on restoring severe erosion at Villa Lee Park in Fairfax, VA. This involved:</p>
-            <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300">
+        <div id="community-service" class="section">
+            <h1>Community Service</h1>
+            <h2>Eagle Scout Service Project</h2>
+            <p>For my Eagle Scout project, I led a community service initiative focused on restoring severe erosion at Villa Lee Park in Fairfax, VA. This involved:</p>
+            <ul>
                 <li>Extensive planning and meetings with local community organizations.</li>
                 <li>Coordinating fundraising efforts to secure necessary resources.</li>
                 <li>Leading numerous volunteers in collaboration with the Fairfax County Park Authority.</li>
                 <li>Successfully restoring eroded areas near bridge abutments, making the park path accessible again.</li>
             </ul>
-            <p class="text-gray-600 dark:text-gray-300 mb-4">This experience deepened my commitment to service and enhanced my leadership skills, aligning with my public administration goals.</p>
-            <h2 class="text-2xl font-semibold text-gray-700 dark:text-gray-200 mb-2">News Article</h2>
-            <p class="text-gray-600 dark:text-gray-300 mb-4">My Eagle Scout project was featured in a 2015 article by Annandale Today, recognizing my achievement as one of three Falls Church High School students who earned the Eagle Scout rank. The article highlights my leadership in restoring erosion at Villa Lee Park, improving park accessibility and community safety. Read the full article here: <a href="https://annandaletoday.com/falls-church-hs-students-achieve-eagle/" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Annandale Today - Falls Church HS Students Achieve Eagle</a>.</p>
-            <h2 class="text-2xl font-semibold text-gray-700 dark:text-gray-200 mb-2">Photo Gallery</h2>
-            <button id="gallery-toggle" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition duration-200 mb-4">Show/Hide Photos</button>
-            <div id="gallery" class="hidden grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <p>This experience deepened my commitment to service and enhanced my leadership skills, aligning with my public administration goals.</p>
+            <h2>News Article</h2>
+            <p>My Eagle Scout project was featured in a 2015 article by Annandale Today, recognizing my achievement as one of three Falls Church High School students who earned the Eagle Scout rank. The article highlights my leadership in restoring erosion at Villa Lee Park, improving park accessibility and community safety. Read the full article here: <a href="https://annandaletoday.com/falls-church-hs-students-achieve-eagle/" target="_blank">Annandale Today - Falls Church HS Students Achieve Eagle</a>.</p>
+            <button id="gallery-toggle">Show/Hide Photos</button>
+            <div id="gallery" class="gallery">
                 <div>
-                    <img src="IMG_3007.jpeg" alt="Eagle Scout Project Photo 1" class="w-full h-auto rounded-lg shadow-md">
-                    <p class="text-gray-600 dark:text-gray-300 text-sm mt-2"> Villa Lee Park Bridge Erosion.</p>
+                    <img src="IMG_3007.jpeg" alt="Villa Lee Park Bridge Erosion">
+                    <p>Villa Lee Park Bridge Erosion</p>
                 </div>
                 <div>
-                    <img src="DSC02664.JPG" alt="Eagle Scout Project Photo 2" class="w-full h-auto rounded-lg shadow-md">
-                    <p class="text-gray-600 dark:text-gray-300 text-sm mt-2">Restored path near bridge abutments at Villa Lee Park with Volunteers.</p>
+                    <img src="DSC02664.JPG" alt="Restored path near bridge abutments at Villa Lee Park with Volunteers">
+                    <p>Restored path near bridge abutments at Villa Lee Park with Volunteers</p>
                 </div>
             </div>
         </div>
-        <div id="contact" class="section bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 transform transition duration-300 hover:scale-105">
-            <h1 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">Contact</h1>
-            <p class="text-gray-600 dark:text-gray-300">Reach me at <a href="mailto:istockin@GMU.edu" class="text-blue-600 dark:text-blue-400 hover:underline">istockin@GMU.edu</a> or connect on <a href="https://linkedin.com/in/ian-stocking" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">LinkedIn</a> to discuss opportunities in public administration or community initiatives.</p>
+        <div id="contact" class="section">
+            <h1>Contact</h1>
+            <p>Reach me at <a href="mailto:istockin@GMU.edu">istockin@GMU.edu</a> or connect on <a href="https://linkedin.com/in/ian-stocking" target="_blank">LinkedIn</a> to discuss opportunities in public administration or community initiatives.</p>
         </div>
     </div>
     <script>
         function showSection(sectionId) {
             document.querySelectorAll('.section').forEach(section => {
                 section.classList.remove('active');
+                section.style.animation = 'none';
+                void section.offsetWidth; // Trigger reflow
+                section.style.animation = 'fadeInUp 0.5s forwards';
             });
             document.getElementById(sectionId).classList.add('active');
         }
@@ -129,6 +318,7 @@
             html.classList.toggle('dark');
             sun.classList.toggle('hidden');
             moon.classList.toggle('hidden');
+            document.querySelectorAll('.section, nav, button, a').forEach(el => el.classList.toggle('dark'));
             localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
         });
 
@@ -136,23 +326,21 @@
             html.classList.add('dark');
             sun.classList.add('hidden');
             moon.classList.remove('hidden');
+            document.querySelectorAll('.section, nav, button, a').forEach(el => el.classList.add('dark'));
         }
 
         const galleryToggle = document.getElementById('gallery-toggle');
         const gallery = document.getElementById('gallery');
 
         galleryToggle.addEventListener('click', () => {
-            gallery.classList.toggle('hidden');
-            galleryToggle.textContent = gallery.classList.contains('hidden') ? 'Show Photos' : 'Hide Photos';
+            gallery.style.display = gallery.style.display === 'none' ? 'grid' : 'none';
+            galleryToggle.textContent = gallery.style.display === 'none' ? 'Show Photos' : 'Hide Photos';
+            gallery.style.transition = 'opacity 0.3s ease';
+            gallery.style.opacity = gallery.style.display === 'none' ? '0' : '1';
         });
+
+        // Initial load
+        showSection('home');
     </script>
-    <style>
-        .section {
-            display: none;
-        }
-        .section.active {
-            display: block;
-        }
-    </style>
 </body>
 </html>
