@@ -149,6 +149,23 @@
             color: var(--heading-color);
         }
 
+        .greeting-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .greeting-time {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .greeting-welcome {
+            font-size: 1.2em;
+            font-weight: 400;
+        }
+
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -237,7 +254,10 @@
     </nav>
     <div class="container">
         <div id="home" class="section active">
-            <h1>Welcome to My Portfolio</h1>
+            <div class="greeting-container">
+                <h1 id="greeting-time" class="greeting-time"></h1>
+                <h2 id="greeting-welcome" class="greeting-welcome">Welcome to My Portfolio</h2>
+            </div>
             <p>Hi, I'm Ian Stocking, a Public Administration student at George Mason University passionate about effective governance and community leadership. Explore my experience, skills, and community service!</p>
         </div>
         <div id="about" class="section">
@@ -377,9 +397,28 @@
             gallery.style.opacity = gallery.style.display === 'none' ? '0' : '1';
         });
 
+        // Function to set greeting based on time
+        function setGreeting() {
+            const greetingTime = document.getElementById('greeting-time');
+            const now = new Date();
+            const hour = now.getHours();
+            let timeGreeting;
+
+            if (hour >= 5 && hour < 12) {
+                timeGreeting = 'Good Morning';
+            } else if (hour >= 12 && hour < 17) {
+                timeGreeting = 'Good Afternoon';
+            } else {
+                timeGreeting = 'Good Evening';
+            }
+
+            greetingTime.textContent = timeGreeting;
+        }
+
         // Initial load
         applyTheme();
         showSection('home');
+        setGreeting();
     </script>
 </body>
 </html>
