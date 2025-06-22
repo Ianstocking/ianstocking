@@ -1,136 +1,154 @@
 <!DOCTYPE html>
 <html lang="en" id="html">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ian Stocking - Portfolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-  <style>
-    .section {
-      display: none;
-      opacity: 0;
-      transform: translateY(10px);
-      transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-    .section.active {
-      display: block;
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ian Stocking - Personal Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gradient-to-br from-gray-100 to-blue-100 dark:from-gray-900 dark:to-blue-900 font-sans transition-colors duration-300 text-gray-800 dark:text-gray-100">
-
-  <!-- Navigation -->
-  <nav class="bg-white/20 dark:bg-gray-800/20 backdrop-blur-md sticky top-0 z-20 shadow-md">
-    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-      <ul class="flex space-x-6 text-sm sm:text-base">
-        <li><a href="#home" data-section="home" class="nav-link hover:text-blue-600 dark:hover:text-blue-400">Home</a></li>
-        <li><a href="#about" data-section="about" class="nav-link hover:text-blue-600 dark:hover:text-blue-400">About</a></li>
-        <li><a href="#experience" data-section="experience" class="nav-link hover:text-blue-600 dark:hover:text-blue-400">Experience</a></li>
-        <li><a href="#computer-skills" data-section="computer-skills" class="nav-link hover:text-blue-600 dark:hover:text-blue-400">Skills</a></li>
-        <li><a href="#community-service" data-section="community-service" class="nav-link hover:text-blue-600 dark:hover:text-blue-400">Service</a></li>
-        <li><a href="#contact" data-section="contact" class="nav-link hover:text-blue-600 dark:hover:text-blue-400">Contact</a></li>
-      </ul>
-      <button id="theme-toggle" class="ml-4 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
-        <span class="sun">☀️</span>
-        <span class="moon hidden">🌙</span>
-      </button>
+<body class="bg-gradient-to-br from-gray-100 to-blue-100 dark:from-gray-900 dark:to-blue-900 font-sans transition-colors duration-300">
+    <nav class="bg-white bg-opacity-20 dark:bg-gray-800 dark:bg-opacity-20 backdrop-filter backdrop-blur-lg text-gray-800 dark:text-white p-4 sticky top-0 shadow-lg z-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <ul class="flex space-x-6">
+                <li><a href="#home" onclick="showSection('home')" class="hover:text-blue-600 dark:hover:text-blue-400 transition duration-200 font-medium">Home</a></li>
+                <li><a href="#about" onclick="showSection('about')" class="hover:text-blue-600 dark:hover:text-blue-400 transition duration-200 font-medium">About</a></li>
+                <li><a href="#experience" onclick="showSection('experience')" class="hover:text-blue-600 dark:hover:text-blue-400 transition duration-200 font-medium">Experience</a></li>
+                <li><a href="#computer-skills" onclick="showSection('computer-skills')" class="hover:text-blue-600 dark:hover:text-blue-400 transition duration-200 font-medium">Computer Skills</a></li>
+                <li><a href="#community-service" onclick="showSection('community-service')" class="hover:text-blue-600 dark:hover:text-blue-400 transition duration-200 font-medium">Community Service</a></li>
+                <li><a href="#contact" onclick="showSection('contact')" class="hover:text-blue-600 dark:hover:text-blue-400 transition duration-200 font-medium">Contact</a></li>
+            </ul>
+            <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-200">
+                <span class="sun">☀️</span>
+                <span class="moon hidden">🌙</span>
+            </button>
+        </div>
+    </nav>
+    <div class="container mx-auto p-6 max-w-3xl">
+        <div id="home" class="section bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 active transform transition duration-300 hover:scale-105">
+            <h1 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">Welcome to My Portfolio</h1>
+            <p class="text-gray-600 dark:text-gray-300">Hi, I'm Ian Stocking, a Public Administration student at George Mason University passionate about effective governance and community leadership. Explore my experience, skills, and community service!</p>
+        </div>
+        <div id="about" class="section bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 transform transition duration-300 hover:scale-105">
+            <h1 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">About Me</h1>
+            <p class="text-gray-600 dark:text-gray-300">I'm a student at George Mason University's Schar School of Policy and Government, pursuing a Bachelor of Science in Public Administration with a Concentration in Administration and Management. I hold associate degrees in Political Science and Science from Northern Virginia Community College. Based in Fairfax, VA, I'm dedicated to advancing public policy through efficient management and data-driven solutions. I interned with Senator Mark Warner’s office in 2025, conducting research on public administration challenges. Connect with me on <a href="https://linkedin.com/in/ian-stocking" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">LinkedIn</a> to learn more!</p>
+        </div>
+        <div id="experience" class="section bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 transform transition duration-300 hover:scale-105">
+            <h1 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">Experience</h1>
+            <div class="mb-6">
+                <h2 class="text-2xl font-semibold text-gray-700 dark:text-gray-200 mb-2">Intern, United States Senate (Senator Mark R. Warner), Vienna, VA</h2>
+                <p class="text-gray-500 dark:text-gray-400 italic">January 2025 - April 2025</p>
+                <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300">
+                    <li>Assisted in drafting event briefs for the Senator, summarizing key policy points, attendee backgrounds, and strategic messaging for public appearances.</li>
+                    <li>Conducted legislative research and drafted memos on policy issues.</li>
+                    <li>Assisted in constituent services, responding to inquiries via phone, email, and mail, ensuring clear and professional communication.</li>
+                    <li>Provided administrative support, including data entry, scheduling, and office organization, to maintain efficient daily operations.</li>
+                </ul>
+            </div>
+            <div class="mb-6">
+                <h2 class="text-2xl font-semibold text-gray-700 dark:text-gray-200 mb-2">Client Advisor, Panerai, McLean, VA</h2>
+                <p class="text-gray-500 dark:text-gray-400 italic">November 2023 - August 2024</p>
+                <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300">
+                    <li>Engaged with high-profile and high-net-worth individuals, ensuring exceptional service and cultivating trusted relationships in high-stakes environments.</li>
+                    <li>Delivered personalized client experiences by leveraging strong communication skills, active listening, and cultural awareness to meet individual needs.</li>
+                    <li>Surpassed sales goals by generating over $300,000 in revenue through consultative selling and tailored recommendations.</li>
+                    <li>Collaborated with a diverse team to ensure cohesive operations and exemplary client service.</li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="text-2xl font-semibold text-gray-700 dark:text-gray-200 mb-2">Educator, Lululemon Athletica, McLean, VA</h2>
+                <p class="text-gray-500 dark:text-gray-400 italic">December 2022 - November 2023</p>
+                <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300">
+                    <li>Engaged with guests to provide tailored experiences, prioritizing time management and communication.</li>
+                    <li>Leveraged technical product knowledge to articulate value, translating complex information effectively.</li>
+                    <li>Partnered with teammates to enhance the guest experience through collaboration and adaptability.</li>
+                </ul>
+            </div>
+        </div>
+        <div id="computer-skills" class="section bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 transform transition duration-300 hover:scale-105">
+            <h1 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">Computer Skills</h1>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">As a Public Administration student, I leverage a range of technical tools to support data analysis, research, and efficient workflow management, enhancing my ability to address complex policy and administrative challenges.</p>
+            <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300">
+                <li><strong>R</strong>: Proficient in using R for statistical analysis and data visualization, enabling efficient processing and interpretation of datasets for public policy research.</li>
+                <li><strong>Python</strong>: Skilled in Python for data manipulation and analysis, utilizing libraries like pandas and numpy to support data-driven decision-making in administrative contexts.</li>
+                <li><strong>SAS</strong>: Experienced with SAS for advanced statistical modeling, facilitating rigorous analysis of public administration datasets.</li>
+                <li><strong>Minitab</strong>: Competent in Minitab for statistical process control and quality analysis, applicable to evaluating and improving administrative efficiency.</li>
+                <li><strong>Stata</strong>: Proficient in Stata for econometric analysis, aiding in the study of policy impacts and administrative trends.</li>
+                <li><strong>Microsoft Office/365</strong>: Expert in Word, Excel, PowerPoint, and Outlook for creating professional reports, managing data, and streamlining communication in administrative settings.</li>
+                <li><strong>Apple Software</strong>: Adept with macOS and tools like Pages, Numbers, and Keynote, ensuring seamless workflow for presentations and documentation across platforms.</li>
+            </ul>
+        </div>
+        <div id="community-service" class="section bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 transform transition duration-300 hover:scale-105">
+            <h1 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">Community Service</h1>
+            <h2 class="text-2xl font-semibold text-gray-700 dark:text-gray-200 mb-2">Eagle Scout Service Project</h2>
+            <p class="text-gray-600 dark:text-gray-300">For my Eagle Scout project, I led a community service initiative focused on restoring severe erosion at Villa Lee Park in Fairfax, VA. This involved:</p>
+            <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300">
+                <li>Extensive planning and meetings with local community organizations.</li>
+                <li>Coordinating fundraising efforts to secure necessary resources.</li>
+                <li>Leading numerous volunteers in collaboration with the Fairfax County Park Authority.</li>
+                <li>Successfully restoring eroded areas near bridge abutments, making the park path accessible again.</li>
+            </ul>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">This experience deepened my commitment to service and enhanced my leadership skills, aligning with my public administration goals.</p>
+            <h2 class="text-2xl font-semibold text-gray-700 dark:text-gray-200 mb-2">News Article</h2>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">My Eagle Scout project was featured in a 2015 article by Annandale Today, recognizing my achievement as one of three Falls Church High School students who earned the Eagle Scout rank. The article highlights my leadership in restoring erosion at Villa Lee Park, improving park accessibility and community safety. Read the full article here: <a href="https://annandaletoday.com/falls-church-hs-students-achieve-eagle/" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Annandale Today - Falls Church HS Students Achieve Eagle</a>.</p>
+            <h2 class="text-2xl font-semibold text-gray-700 dark:text-gray-200 mb-2">Photo Gallery</h2>
+            <button id="gallery-toggle" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition duration-200 mb-4">Show/Hide Photos</button>
+            <div id="gallery" class="hidden grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <img src="https://via.placeholder.com/300x200?text=Eagle+Scout+Project+Photo+1" alt="Eagle Scout Project Photo 1" class="w-full h-auto rounded-lg shadow-md">
+                    <p class="text-gray-600 dark:text-gray-300 text-sm mt-2">Placeholder: Volunteers working on erosion restoration at Villa Lee Park.</p>
+                </div>
+                <div>
+                    <img src="https://via.placeholder.com/300x200?text=Eagle+Scout+Project+Photo+2" alt="Eagle Scout Project Photo 2" class="w-full h-auto rounded-lg shadow-md">
+                    <p class="text-gray-600 dark:text-gray-300 text-sm mt-2">Placeholder: Restored path near bridge abutments at Villa Lee Park.</p>
+                </div>
+            </div>
+        </div>
+        <div id="contact" class="section bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 transform transition duration-300 hover:scale-105">
+            <h1 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">Contact</h1>
+            <p class="text-gray-600 dark:text-gray-300">Reach me at <a href="mailto:istockin@GMU.edu" class="text-blue-600 dark:text-blue-400 hover:underline">istockin@GMU.edu</a> or connect on <a href="https://linkedin.com/in/ian-stocking" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">LinkedIn</a> to discuss opportunities in public administration or community initiatives.</p>
+        </div>
     </div>
-  </nav>
-
-  <!-- Main Content -->
-  <main class="container mx-auto p-6 max-w-3xl">
-    <section id="home" class="section active bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
-      <h1 class="text-3xl font-bold mb-4">Welcome to My Portfolio</h1>
-      <p>Hi, I'm Ian Stocking, a Public Administration student at George Mason University passionate about effective governance and community leadership. Explore my experience, skills, and community service!</p>
-    </section>
-
-    <section id="about" class="section bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
-      <h1 class="text-3xl font-bold mb-4">About Me</h1>
-      <p>I'm a student at GMU’s Schar School of Policy and Government, pursuing a B.S. in Public Administration. I’ve interned with Senator Mark Warner’s office and hold associate degrees from NOVA. Connect with me on 
-        <a href="https://linkedin.com/in/ian-stocking" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">LinkedIn</a>.</p>
-    </section>
-
-    <section id="experience" class="section bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
-      <h1 class="text-3xl font-bold mb-4">Experience</h1>
-      <!-- Experience details go here -->
-      <p class="text-gray-400">Your experience content goes here…</p>
-    </section>
-
-    <section id="computer-skills" class="section bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
-      <h1 class="text-3xl font-bold mb-4">Computer Skills</h1>
-      <p class="text-gray-300">Skilled in R, Python, Stata, SAS, and more...</p>
-    </section>
-
-    <section id="community-service" class="section bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
-      <h1 class="text-3xl font-bold mb-4">Community Service</h1>
-      <p class="text-gray-300">Eagle Scout erosion control project at Villa Lee Park. Recognized in Annandale Today. <a href="https://annandaletoday.com/falls-church-hs-students-achieve-eagle/" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Read Article</a>.</p>
-    </section>
-
-    <section id="contact" class="section bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
-      <h1 class="text-3xl font-bold mb-4">Contact</h1>
-      <p>Reach out via email: <a href="mailto:istockin@GMU.edu" class="text-blue-600 dark:text-blue-400 hover:underline">istockin@GMU.edu</a> or connect on 
-        <a href="https://linkedin.com/in/ian-stocking" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">LinkedIn</a>.</p>
-    </section>
-  </main>
-
-  <!-- JavaScript for Navigation, Theming, Hash -->
-  <script>
-    const themeToggle = document.getElementById('theme-toggle');
-    const html = document.getElementById('html');
-    const sun = themeToggle.querySelector('.sun');
-    const moon = themeToggle.querySelector('.moon');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    // Theme toggle logic
-    themeToggle.addEventListener('click', () => {
-      html.classList.toggle('dark');
-      sun.classList.toggle('hidden');
-      moon.classList.toggle('hidden');
-      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
-    });
-
-    if (localStorage.getItem('theme') === 'dark') {
-      html.classList.add('dark');
-      sun.classList.add('hidden');
-      moon.classList.remove('hidden');
-    }
-
-    // Navigation section toggle
-    function showSection(sectionId) {
-      document.querySelectorAll('.section').forEach(section => section.classList.remove('active'));
-      document.getElementById(sectionId)?.classList.add('active');
-
-      navLinks.forEach(link => {
-        link.classList.remove('text-blue-600', 'dark:text-blue-400');
-        if (link.dataset.section === sectionId) {
-          link.classList.add('text-blue-600', 'dark:text-blue-400');
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
         }
-      });
-    }
 
-    // Handle clicks
-    navLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const sectionId = link.dataset.section;
-        history.pushState(null, '', `#${sectionId}`);
-        showSection(sectionId);
-      });
-    });
+        const html = document.getElementById('html');
+        const themeToggle = document.getElementById('theme-toggle');
+        const sun = themeToggle.querySelector('.sun');
+        const moon = themeToggle.querySelector('.moon');
 
-    // On load: show correct section from hash
-    window.addEventListener('DOMContentLoaded', () => {
-      const hash = window.location.hash.replace('#', '');
-      showSection(hash || 'home');
-    });
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            sun.classList.toggle('hidden');
+            moon.classList.toggle('hidden');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
 
-    // On browser navigation
-    window.addEventListener('popstate', () => {
-      const hash = window.location.hash.replace('#', '');
-      showSection(hash || 'home');
-    });
-  </script>
+        if (localStorage.getItem('theme') === 'dark') {
+            html.classList.add('dark');
+            sun.classList.add('hidden');
+            moon.classList.remove('hidden');
+        }
+
+        const galleryToggle = document.getElementById('gallery-toggle');
+        const gallery = document.getElementById('gallery');
+
+        galleryToggle.addEventListener('click', () => {
+            gallery.classList.toggle('hidden');
+            galleryToggle.textContent = gallery.classList.contains('hidden') ? 'Show Photos' : 'Hide Photos';
+        });
+    </script>
+    <style>
+        .section {
+            display: none;
+        }
+        .section.active {
+            display: block;
+        }
+    </style>
 </body>
 </html>
