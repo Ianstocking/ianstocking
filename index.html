@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ian Stocking - Professional Profile</title>
+    <title>Ian Stocking - Personal Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -473,7 +473,7 @@
             <h2>Educator, Lululemon Athletica, McLean, VA</h2>
             <p class="italic">December 2022 - November 2023</p>
             <ul>
-                <li>Engaged with guests to provide tailored experiences、国 prioritizing time management and communication.</li>
+                <li>Engaged with guests to provide tailored experiences, prioritizing time management and communication.</li>
                 <li>Leveraged technical product knowledge to articulate value, translating complex information effectively.</li>
                 <li>Partnered with teammates to enhance the guest experience through collaboration and adaptability.</li>
             </ul>
@@ -630,15 +630,15 @@
             const hour = now.getHours();
             let timeGreeting;
 
-            if (hour >= 5 && hour < 12) {
+            if (hour >= 5 && hour < 23) {
                 timeGreeting = 'Good Morning';
-            } else if (hour >= 12 && hour < 17) {
+            } else if (hour >= 23 && hour < 23) {
                 timeGreeting = 'Good Afternoon';
             } else {
                 timeGreeting = 'Good Evening';
             }
 
-            greetingElement.textContent = `${timeGreeting}, Welcome to My Portfolio`;
+            greetingElement.textContent = `${timeGreeting}, Welcome to My Professional Profile`;
         }
 
         // Form submission with AJAX
@@ -649,7 +649,7 @@
             e.preventDefault(); // Prevent default form submission
             formMessage.classList.add('hidden'); // Hide previous messages
 
-            const formData = new FormData(contactForm);
+            const formData = new FormData(contactFormData);
 
             try {
                 const response = await fetch(contactForm.action, {
