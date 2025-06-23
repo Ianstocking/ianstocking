@@ -213,19 +213,17 @@
 
         .gallery {
             display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
+            justify-content: center;
             margin-top: 2rem;
             padding: 1rem;
-            position: relative;
             overflow: hidden;
         }
 
         .gallery-item {
-            flex: 0 0 300px;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-end;
+            max-width: 300px;
         }
 
         .gallery img {
@@ -242,10 +240,10 @@
         }
 
         .gallery p {
-            margin-top: 1rem;
+            margin: 0.5rem 0 0 auto;
             font-size: 0.9rem;
             text-align: right;
-            max-width: 200px;
+            max-width: 150px;
         }
 
         #gallery {
@@ -255,15 +253,6 @@
         /* About Section Specific Styles */
         #about p:not(.gallery p) {
             margin-bottom: 2rem;
-        }
-
-        #about .gallery {
-            justify-content: space-between;
-            align-items: flex-end;
-        }
-
-        #about .gallery .gallery-item {
-            flex: 0 0 auto;
         }
 
         /* Contact Form Styles */
@@ -379,18 +368,12 @@
             }
 
             .gallery-item {
-                flex: 0 0 auto;
-                width: 100%;
-                max-width: 300px;
+                align-items: center;
             }
 
             .gallery p {
                 text-align: center;
                 max-width: none;
-            }
-
-            #about .gallery {
-                justify-content: center;
             }
 
             .contact-links {
@@ -442,8 +425,6 @@
         <div class="gallery">
             <div class="gallery-item">
                 <img src="IMG_3948.JPG" alt="Yukon Territory, Canada">
-            </div>
-            <div class="gallery-item">
                 <p>Yukon Territory, Canada</p>
             </div>
         </div>
@@ -488,8 +469,8 @@
         <h1>Computer Skills</h1>
         <p>As a Public Administration student, I leverage a range of technical tools to support data analysis, research, and efficient workflow management, enhancing my ability to address complex policy and administrative challenges.</p>
         <ul>
-            <li><strong>R</strong>: Proficient in using R for statistical analysis and data visualization, enabling efficient processing and interpretation of datasets for public policy research.</li>
-            <li><strong>Python</strong>: Skilled in Python for data manipulation and analysis, utilizing libraries like pandas and numpy to support data-driven decision-making in administrative contexts.</li>
+            <li><strong>R</strong>: Proficient in using R for statistical analysis and data visualization, enabling efficient processing and interpretation of datasets forFOX
+                <li><strong>Python</strong>: Skilled in Python for data manipulation and analysis, utilizing libraries like pandas and numpy to support data-driven decision-making in administrative contexts.</li>
             <li><strong>SAS</strong>: Experienced with SAS for advanced statistical modeling, facilitating rigorous analysis of public administration datasets.</li>
             <li><strong>Minitab</strong>: Competent in Minitab for statistical process control and quality analysis, applicable to evaluating and improving administrative efficiency.</li>
             <li><strong>Stata</strong>: Proficient in Stata for econometric analysis, aiding in the study of policy impacts and administrative trends.</li>
