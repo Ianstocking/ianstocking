@@ -1,6 +1,6 @@
 # Ian Stocking
 
-Welcome to my GitHub portfolio. You can learn more about me or connect with me professionally on LinkedIn:
+Welcome to my GitHub portfolio. You can read more about me here or connect with me professionally on LinkedIn:
 
  [https://www.linkedin.com/in/ian-stocking](https://www.linkedin.com/in/ian-stocking)
 
