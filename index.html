@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ian Stocking - Personal Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
             --background-start: #e6f0fa;
@@ -211,20 +212,24 @@
         }
 
         .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
             position: relative;
             overflow: hidden;
         }
 
         .gallery-item {
-            position: relative;
+            flex: 0 0 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .gallery img {
             width: 100%;
+            max-width: 300px;
             height: auto;
             border-radius: 8px;
             transition: transform 0.3s ease;
@@ -233,23 +238,107 @@
         }
 
         .gallery img:hover {
-            transform: scale(1.03);
+            transform: scale(1.05);
         }
 
         .gallery p {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            margin: 0.5rem;
-            padding: 0.3rem 0.5rem;
-            background: var(--card-background);
-            border-radius: 4px;
+            margin-top: 0.5rem;
             font-size: 0.9rem;
-            z-index: 2;
+            text-align: center;
+            max-width: 200px;
         }
 
         #gallery {
             display: none;
+        }
+
+        /* About Section Specific Styles */
+        #about p:not(.gallery p) {
+            margin-bottom: 2rem;
+        }
+
+        #about .gallery {
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        #about .gallery .gallery-item {
+            flex: 0 0 auto;
+        }
+
+        #about .gallery p {
+            text-align: right;
+        }
+
+        /* Contact Form Styles */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-form label {
+            font-weight: 500;
+            color: var(--subheading-color);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 0.8rem;
+            border: 1px solid var(--text-color);
+            border-radius: 5px;
+            background: var(--card-background);
+            color: var(--text-color);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--link-color);
+            box-shadow: 0 0 5px rgba(30, 144, 255, 0.3);
+        }
+
+        .contact-form button {
+            background: var(--button-bg);
+            color: #fff;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .contact-form button:hover {
+            background: var(--button-hover);
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .contact-links a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--link-color);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .contact-links a:hover {
+            color: var(--link-hover);
+        }
+
+        .contact-links i {
+            font-size: 1.2rem;
         }
 
         /* Footer */
@@ -287,9 +376,29 @@
                 padding: 2rem 1rem;
             }
 
+            .gallery {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .gallery-item {
+                flex: 0 0 auto;
+                width: 100%;
+                max-width: 300px;
+            }
+
             .gallery p {
-                font-size: 0.8rem;
-                padding: 0.2rem 0.4rem;
+                text-align: center;
+                max-width: none;
+            }
+
+            #about .gallery {
+                justify-content: center;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                gap: 1rem;
             }
         }
 
@@ -337,6 +446,8 @@
             <!-- REPLACE WITH YOUR IMAGE PATH -->
             <div class="gallery-item">
                 <img src="IMG_3948.JPG" alt="Yukon Territory, Canada">
+            </div>
+            <div class="gallery-item">
                 <p>Yukon Territory, Canada</p>
             </div>
         </div>
@@ -422,7 +533,24 @@
     <!-- Contact Section -->
     <section id="contact" class="section">
         <h1>Contact</h1>
-        <p>Reach me at <a href="mailto:istockin@GMU.edu">istockin@GMU.edu</a> or connect with me on <a href="https://linkedin.com/in/ian-stocking" target="_blank">LinkedIn</a>.</p>
+        <p>I’d love to discuss opportunities in public administration—send me a message!</p>
+        <form class="contact-form" action="https://formspree.io/f/your-formspree-id" method="POST" aria-label="Contact form">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required aria-required="true">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required aria-required="true">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Your Message" rows="5" required aria-required="true"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <div class="contact-links">
+            <a href="mailto:istockin@GMU.edu" aria-label="Email Ian Stocking">
+                <i class="fas fa-envelope"></i> istockin@GMU.edu
+            </a>
+            <a href="https://linkedin.com/in/ian-stocking" target="_blank" aria-label="Connect with Ian Stocking on LinkedIn">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+        </div>
     </section>
 
     <!-- Footer -->
