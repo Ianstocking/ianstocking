@@ -215,6 +215,12 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1rem;
             margin-top: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-item {
+            position: relative;
         }
 
         .gallery img {
@@ -222,15 +228,24 @@
             height: auto;
             border-radius: 8px;
             transition: transform 0.3s ease;
+            display: block;
+            z-index: 1;
         }
 
         .gallery img:hover {
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
 
         .gallery p {
-            text-align: center;
-            margin: 0.5rem 0;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            margin: 0.5rem;
+            padding: 0.3rem 0.5rem;
+            background: var(--card-background);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            z-index: 2;
         }
 
         #gallery {
@@ -271,6 +286,11 @@
             .section {
                 padding: 2rem 1rem;
             }
+
+            .gallery p {
+                font-size: 0.8rem;
+                padding: 0.2rem 0.4rem;
+            }
         }
 
         @media (prefers-color-scheme: dark) {
@@ -285,7 +305,6 @@
     <header>
         <nav>
             <div class="logo">
-                <!-- REPLACE WITH YOUR LOGO OR NAME -->
                 Ian Stocking
             </div>
             <div class="nav-links">
@@ -307,7 +326,7 @@
     <section id="home" class="section active">
         <h1 id="greeting"></h1>
         <p>Hi, I'm Ian Stocking, a Public Administration student at George Mason University passionate about effective governance and community leadership. Explore my experience, skills, and community service!</p>
-        <a href="#experience" class="btn">View My Experience</a>
+        <a href="#experience" class="btn" onclick="showSection('experience')">View My Experience</a>
     </section>
 
     <!-- About Section -->
@@ -316,7 +335,7 @@
         <p>As a current senior at George Mason University’s Schar School of Policy and Government, I am pursuing a Bachelor of Science degree in Public Administration with a Concentration in Administration and Management. I hold dual Associate degrees in Political Science and Science from Northern Virginia Community College. Based in Fairfax, VA, I am driven to enhance public policy through efficient management and data-driven solutions. Known for my outgoing nature, dedication, and goal-oriented mindset, I thrive in collaborative settings and am committed to creating a lasting impact in my community and beyond.</p>
         <div class="gallery">
             <!-- REPLACE WITH YOUR IMAGE PATH -->
-            <div>
+            <div class="gallery-item">
                 <img src="IMG_3948.JPG" alt="Yukon Territory, Canada">
                 <p>Yukon Territory, Canada</p>
             </div>
@@ -389,11 +408,11 @@
         <button id="gallery-toggle">Show/Hide Photos</button>
         <div id="gallery" class="gallery">
             <!-- REPLACE WITH YOUR IMAGE PATHS -->
-            <div>
+            <div class="gallery-item">
                 <img src="IMG_3007.jpeg" alt="Villa Lee Park Bridge Erosion">
                 <p>Villa Lee Park Bridge Erosion</p>
             </div>
-            <div>
+            <div class="gallery-item">
                 <img src="DSC02664.JPG" alt="Restored path near bridge abutments at Villa Lee Park with Volunteers">
                 <p>Restored path near bridge abutments at Villa Lee Park with Volunteers</p>
             </div>
@@ -409,7 +428,6 @@
     <!-- Footer -->
     <footer>
         <div class="social-links">
-            <!-- REPLACE WITH YOUR SOCIAL LINKS -->
             <a href="https://linkedin.com/in/ian-stocking" target="_blank">LinkedIn</a>
             <a href="mailto:istockin@GMU.edu">Email</a>
         </div>
