@@ -214,8 +214,9 @@
         .gallery {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+            gap: 2rem;
+            margin-top: 2rem;
+            padding: 1rem;
             position: relative;
             overflow: hidden;
         }
@@ -234,7 +235,6 @@
             border-radius: 8px;
             transition: transform 0.3s ease;
             display: block;
-            z-index: 1;
         }
 
         .gallery img:hover {
@@ -242,9 +242,9 @@
         }
 
         .gallery p {
-            margin-top: 0.5rem;
+            margin-top: 1rem;
             font-size: 0.9rem;
-            text-align: center;
+            text-align: right;
             max-width: 200px;
         }
 
@@ -264,10 +264,6 @@
 
         #about .gallery .gallery-item {
             flex: 0 0 auto;
-        }
-
-        #about .gallery p {
-            text-align: right;
         }
 
         /* Contact Form Styles */
@@ -379,6 +375,7 @@
             .gallery {
                 flex-direction: column;
                 align-items: center;
+                padding: 0.5rem;
             }
 
             .gallery-item {
@@ -443,7 +440,6 @@
         <h1>About Me</h1>
         <p>As a current senior at George Mason University’s Schar School of Policy and Government, I am pursuing a Bachelor of Science degree in Public Administration with a Concentration in Administration and Management. I hold dual Associate degrees in Political Science and Science from Northern Virginia Community College. Based in Fairfax, VA, I am driven to enhance public policy through efficient management and data-driven solutions. Known for my outgoing nature, dedication, and goal-oriented mindset, I thrive in collaborative settings and am committed to creating a lasting impact in my community and beyond.</p>
         <div class="gallery">
-            <!-- REPLACE WITH YOUR IMAGE PATH -->
             <div class="gallery-item">
                 <img src="IMG_3948.JPG" alt="Yukon Territory, Canada">
             </div>
@@ -518,7 +514,6 @@
         <p>My Eagle Scout project was featured in a 2015 article by Annandale Today, recognizing my achievement as one of three Falls Church High School students who earned the Eagle Scout rank. The article highlights my leadership in restoring erosion at Villa Lee Park, improving park accessibility and community safety. Read the full article here: <a href="https://annandaletoday.com/falls-church-hs-students-achieve-eagle/" target="_blank">Annandale Today - Falls Church HS Students Achieve Eagle</a>.</p>
         <button id="gallery-toggle">Show/Hide Photos</button>
         <div id="gallery" class="gallery">
-            <!-- REPLACE WITH YOUR IMAGE PATHS -->
             <div class="gallery-item">
                 <img src="IMG_3007.jpeg" alt="Villa Lee Park Bridge Erosion">
                 <p>Villa Lee Park Bridge Erosion</p>
